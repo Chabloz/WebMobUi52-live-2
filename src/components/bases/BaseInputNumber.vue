@@ -15,7 +15,7 @@
       type="number"
       v-model="model"
     />
-    <symbol v-if="symbol != null">{{ symbol }}</symbol>
+    <abbr v-if="symbol != null">{{ symbol }}</abbr>
   </div>
 </template>
 
