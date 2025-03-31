@@ -5,7 +5,7 @@
   import BaseInputNumber from './components/bases/BaseInputNumber.vue';
   import { roundToTwoDecimals } from './utils/math.js';
 
-  const tempSi = ref(37.6+273.15); // 0 Kelvin by default
+  const tempSi = ref(0); // Kelvin is the SI unit for temperature
 
   const tempKelvin = computed({
     get: () => roundToTwoDecimals(tempSi.value),
@@ -21,7 +21,6 @@
     get: () => roundToTwoDecimals(tempSi.value - 273.15),
     set: (value) => tempSi.value = value + 273.15,
   });
-
 
 </script>
 
@@ -55,7 +54,14 @@
 </template>
 
 <style scoped>
-
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    max-width: 400px;
+    margin: auto;
+  }
 </style>
 
 <style>
