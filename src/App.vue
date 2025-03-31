@@ -29,7 +29,6 @@
   <TheHeader>Converter app</TheHeader>
   <TheNav />
   <form>
-    <!-- <input type="number" :value="tempSi" @input="setTempsi"/> -->
     <BaseInputNumber
       placeholder="Kelvin"
       id="tempKelvin"
@@ -54,6 +53,10 @@
   </form>
 
 </template>
+
+<style scoped>
+
+</style>
 
 <style>
   * {
