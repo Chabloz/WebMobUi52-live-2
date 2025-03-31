@@ -1,4 +1,6 @@
 <script setup>
+  defineOptions({inheritAttrs: false});
+
   const model = defineModel();
   const props = defineProps({
     symbol: {
@@ -22,30 +24,21 @@
 <style scoped>
   div {
     display: flex;
+    justify-content: space-between;
     align-items: center;
   }
-  input {
-    flex: 1;
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-    box-sizing: border-box;
-}
   input[type="number"] {
-    margin: 0.5rem 0;
     padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1rem;
     box-sizing: border-box;
+    flex: 1;
   }
   abbr {
-    font-size: 1rem;
-    margin-left: 0.5rem;
+    margin-left: 0.2rem;
     color: #333;
-    margin: 0.5rem 0;
-    padding: 0.5rem;
+    padding: 0 0.5rem;
+    min-width: 3rem;
   }
 </style>
