@@ -41,7 +41,7 @@
     font-size: 1rem;
     box-sizing: border-box;
   }
-  symbol {
+  abbr {
     font-size: 1rem;
     margin-left: 0.5rem;
     color: #333;
