@@ -3,6 +3,7 @@
   import TheHeader from './components/TheHeader.vue';
   import TheNav from './components/TheNav.vue';
   import BaseInputNumber from './components/bases/BaseInputNumber.vue';
+  import BaseForm from './components/bases/BaseForm.vue';
   import { roundToTwoDecimals } from './utils/math.js';
 
   const tempSi = ref(0); // Kelvin is the SI unit for temperature
@@ -27,42 +28,28 @@
 <template>
   <TheHeader>Converter app</TheHeader>
   <TheNav />
-  <form>
+  <BaseForm>
     <BaseInputNumber
       placeholder="Kelvin"
-      id="tempKelvin"
       name="tempKelvin"
       symbol="K"
       v-model="tempKelvin"
     />
     <BaseInputNumber
       placeholder="Celsius"
-      id="tempCelsius"
       name="tempCelsius"
       symbol="°C"
       v-model="tempCelsius"
     />
     <BaseInputNumber
       placeholder="Fahrenheit"
-      id="tempFahrenheit"
       name="tempFahrenheit"
       symbol="°F"
       v-model="tempFahrenheit"
     />
-  </form>
+  </BaseForm>
 
 </template>
-
-<style scoped>
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
-    max-width: 400px;
-    margin: auto;
-  }
-</style>
 
 <style>
   * {
