@@ -1,18 +1,15 @@
 <script setup>
   import TheHeader from './components/TheHeader.vue';
   import TheNav from './components/TheNav.vue';
-  import PageTemperature from './components/pages/PageTemperature.vue';
-  import PageWeight from './components/pages/PageWeight.vue';
 
-  import { page } from '@/stores/app.js';
+  import { currentPage } from '@/stores/routes.js';
 </script>
 
 <template>
   <TheHeader>Converter app</TheHeader>
   <TheNav />
   <main>
-    <PageTemperature v-if="page == 'temp'" />
-    <PageWeight v-if="page == 'weight'" />
+    <component :is="currentPage" />
   </main>
 </template>
 

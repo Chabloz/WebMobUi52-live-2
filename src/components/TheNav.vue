@@ -1,11 +1,10 @@
 <script setup>
-  import { onMounted, onUnmounted, ref, watchEffect } from 'vue';
-  import { page , defaultPage } from '@/stores/app.js';
+  import { onMounted, onUnmounted, watch } from 'vue';
+  import { curAnchor, routes } from '@/stores/routes.js';
 
   function getHashState() {
-    let hash = window.location.hash.substring(1);
-    if (hash === '') hash = defaultPage;
-    page.value = hash;
+    const hash = window.location.hash.substring(1);
+    curAnchor.value = hash;
   }
 
   onMounted(() => {
@@ -16,21 +15,15 @@
   onUnmounted(() => {
     window.removeEventListener('popstate', getHashState);
   });
-
-  watchEffect(() => {
-    console.log('page:', page.value);
-  });
-
 </script>
 
 <template>
   <nav>
     <ul>
-      <li :class="{ active: page === 'temp' }">
-        <a href="#temp">Temperature</a>
-      </li>
-      <li :class="{ active: page === 'weight' }">
-        <a href="#weight">Weight</a>
+      <li
+        v-for="route in routes" :key="route.anchor"
+      >
+        <a :href="'#' + route.anchor">{{ route.label }}</a>
       </li>
     </ul>
   </nav>
