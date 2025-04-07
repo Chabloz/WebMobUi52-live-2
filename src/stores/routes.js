@@ -18,8 +18,8 @@ export const routes = [
   },
 ];
 
-export const curAnchor = ref('temp');
-
+export const defaultAnchor = 'temp';
+export const curAnchor = ref(defaultAnchor);
 export const currentPage = computed(() => {
   return routes.find((route) => route.anchor === curAnchor.value)?.page || PageTemperature;
 });

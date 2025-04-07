@@ -1,9 +1,13 @@
 <script setup>
   import { onMounted, onUnmounted, watch } from 'vue';
-  import { curAnchor, routes } from '@/stores/routes.js';
+  import { curAnchor, routes, defaultAnchor } from '@/stores/routes.js';
 
   function getHashState() {
-    const hash = window.location.hash.substring(1);
+    let hash = window.location.hash.substring(1);
+    if (!hash || !routes.some(route => route.anchor === hash)) {
+      hash = defaultAnchor;
+      window.history.pushState(null, null, '#' + hash);
+    }
     curAnchor.value = hash;
   }
 
@@ -22,6 +26,7 @@
     <ul>
       <li
         v-for="route in routes" :key="route.anchor"
+        :class="{ active: curAnchor === route.anchor }"
       >
         <a :href="'#' + route.anchor">{{ route.label }}</a>
       </li>
