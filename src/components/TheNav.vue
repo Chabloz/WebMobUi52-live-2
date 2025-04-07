@@ -1,5 +1,5 @@
 <script setup>
-  import { onMounted, onUnmounted, watch } from 'vue';
+  import { onMounted, onUnmounted } from 'vue';
   import { curAnchor, routes, defaultAnchor } from '@/stores/routes.js';
 
   function getHashState() {
